@@ -9,7 +9,7 @@ Open phpmyadmin
 Create Database vim.
 Import database vim.sql(file available inside the pacakege)
 Open Your browser put inside browser “http://localhost/vim/”
- Login details for employee
+ Login details for client
 
 Email id : anuj@gmail.com
 Passowrd : Test@123
