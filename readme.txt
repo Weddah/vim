@@ -6,7 +6,7 @@ Installation Steps(Configuration)
 
 Open phpmyadmin
 
-Create Database elms.
+Create Database vim.
 Import database vim.sql(file available inside the pacakege)
 Open Your browser put inside browser “http://localhost/vim/”
  Login details for employee
