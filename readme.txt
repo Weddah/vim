@@ -1,14 +1,14 @@
 Installation Steps(Configuration)
 
 1. Download and Unzip the file on your local system.
-2. copy elms folder and put this file inside root directory(for xampp is htdocs,for wamp is www and for lamp is var/www/
+2. copy Vim folder and put this file inside root directory(for xampp is htdocs,for wamp is www and for lamp is var/www/
 3. Database Configuration
 
 Open phpmyadmin
 
 Create Database elms.
-Import database elms.sql(file available inside the pacakege)
-Open Your browser put inside browser ìhttp://localhost/elms/î
+Import database vim.sql(file available inside the pacakege)
+Open Your browser put inside browser ‚Äúhttp://localhost/vim/‚Äù
  Login details for employee
 
 Email id : anuj@gmail.com
