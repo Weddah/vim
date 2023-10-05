@@ -7,11 +7,11 @@ include('includes/config.php');
 if(isset($_POST['change']))
     {
 $newpassword=md5($_POST['newpassword']);
-$empid=$_SESSION['empid'];
+$Client_ID=$_SESSION['clientlogin'];
 
-$con="update tblclients set Password=:newpassword where id=:empid";
+$con="update tblclients set Password=:newpassword where id=:Client_ID";
 $chngpwd1 = $dbh->prepare($con);
-$chngpwd1-> bindParam(':empid', $empid, PDO::PARAM_STR);
+$chngpwd1-> bindParam(':Client_ID', $Client_ID, PDO::PARAM_STR);
 $chngpwd1-> bindParam(':newpassword', $newpassword, PDO::PARAM_STR);
 $chngpwd1->execute();
 $msg="Your Password succesfully changed";
@@ -155,7 +155,7 @@ $msg="Your Password succesfully changed";
                                        <div class="row">
                                            <form class="col s12" name="signin" method="post">
                                                <div class="input-field col s12">
-                                                   <input id="empid" type="text" name="empid" class="validate" autocomplete="off" required >
+                                                   <input id="Client_ID" type="text" name="Client_ID" class="validate" autocomplete="off" required >
                                                    <label for="email">Client Id</label>
                                                </div>
                                                <div class="input-field col s12">
@@ -171,18 +171,18 @@ $msg="Your Password succesfully changed";
                                   </div>
 <?php if(isset($_POST['submit']))
 {
-$empid=$_POST['empid'];
+$Client_ID=$_POST['Client_ID'];
 $email=$_POST['emailid'];
-$sql ="SELECT id FROM tblclients WHERE EmailId=:email and EmpId=:empid";
+$sql ="SELECT id FROM tblclients WHERE EmailId=:email and EmpId=:Client_ID";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':email', $email, PDO::PARAM_STR);
-$query-> bindParam(':empid', $empid, PDO::PARAM_STR);
+$query-> bindParam(':Client_ID', $Client_ID, PDO::PARAM_STR);
 $query-> execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 if($query->rowCount() > 0)
 {
 foreach ($results as $result) {
-    $_SESSION['empid']=$result->id;
+    $_SESSION['Client_ID']=$result->id;
   } 
     ?>
 

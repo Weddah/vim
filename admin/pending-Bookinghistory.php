@@ -84,7 +84,7 @@ else{
                                     <tbody>
 <?php 
 $status=0;
-$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblbookings.EventType,tblbookings.PostingDate,tblbookings.Status from tblbookings join tblclients on tblbookings.empid=tblclients.id where tblbookings.Status=:status order by lid desc";
+$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblbookings.EventType,tblbookings.Date,tblbookings.Status from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id where tblbookings.Status=:status order by lid desc";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->execute();
@@ -100,7 +100,7 @@ foreach($results as $result)
                                             <td> <b><?php echo htmlentities($cnt);?></b></td>
                                               <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank"><?php echo htmlentities($result->FirstName." ".$result->LastName);?>(<?php echo htmlentities($result->EmpId);?>)</a></td>
                                             <td><?php echo htmlentities($result->EventType);?></td>
-                                            <td><?php echo htmlentities($result->PostingDate);?></td>
+                                            <td><?php echo htmlentities($result->Date);?></td>
                                                                        <td><?php $stats=$result->Status;
 if($stats==1){
                                              ?>
@@ -114,7 +114,7 @@ if($stats==1){
 
                                              </td>
 
-          <td>
+                                             <td>
            <td><a href="booking-details.php?leaveid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a></td>
                                     </tr>
                                          <?php $cnt++;} }?>

@@ -81,7 +81,6 @@ $msg="Event type record deleted";
                                             <th>Sr no</th>
                                             <th>Event Type</th>
                                             <th>Description</th>
-                                            <th>Creation Date</th>
 											 <th>Service Price</th>
                                             <th>Action</th>
                                         </tr>
@@ -101,7 +100,6 @@ foreach($results as $result)
                                             <td> <?php echo htmlentities($cnt);?></td>
                                             <td><?php echo htmlentities($result->EventType);?></td>
                                             <td><?php echo htmlentities($result->Description);?></td>
-											<td><?php echo htmlentities($result->CreationDate);?></td>
                                             <td><?php echo htmlentities($result->Sprice);?></td>
                                             <td><a href="editeventtype.php?lid=<?php echo htmlentities($result->id);?>"><i class="material-icons">mode_edit</i></a>
                                             <a href="manageeventtype.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Do you want to delete');"> <i class="material-icons">delete_forever</i></a> </td>

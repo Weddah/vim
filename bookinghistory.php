@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['emplogin'])==0)
+if(strlen($_SESSION['clientlogin'])==0)
     {   
 header('location:index.php');
 }
@@ -14,7 +14,7 @@ else{
     <head>
         
         <!-- Title -->
-        <title>User | Booking History</title>
+        <title>Client| Booking History</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -84,7 +84,7 @@ else{
                                     <tbody>
 <?php 
 $eid=$_SESSION['eid'];
-$sql = "SELECT EventType,Stime,Etime,venue,Date,Description,PostingDate,AdminRemarkDate,AdminRemark,Status from tblbookings where empid=:eid";
+$sql = "SELECT EventType,Stime,Etime,venue,Date,Description,Status from tblbookings where Client_ID=:eid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 $query->execute();

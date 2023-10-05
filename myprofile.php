@@ -2,12 +2,12 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['emplogin'])==0)
+if(strlen($_SESSION['clientlogin'])==0)
     {   
 header('location:index.php');
 }
 else{
-$eid=$_SESSION['emplogin'];
+$eid=$_SESSION['clientlogin'];
 if(isset($_POST['update']))
 {
 
@@ -185,6 +185,7 @@ foreach($results as $result)
         <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
         <script src="assets/js/alpha.min.js"></script>
         <script src="assets/js/pages/form_elements.js"></script>
+        <script src="assets/js/pages/dashboard.js"></script>
         
     </body>
 </html>

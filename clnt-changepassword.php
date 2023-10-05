@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['emplogin'])==0)
+if(strlen($_SESSION['clientlogin'])==0)
     {   
 header('location:index.php');
 }
@@ -12,7 +12,7 @@ if(isset($_POST['change']))
     {
 $password=md5($_POST['password']);
 $newpassword=md5($_POST['newpassword']);
-$username=$_SESSION['emplogin'];
+$username=$_SESSION['clientlogin'];
     $sql ="SELECT Password FROM tblclients WHERE EmailId=:username and Password=:password";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':username', $username, PDO::PARAM_STR);

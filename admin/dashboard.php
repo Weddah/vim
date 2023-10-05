@@ -20,7 +20,8 @@ else{
         <meta charset="UTF-8">
         <meta name="description" content="Responsive Admin Dashboard Template" />
         <meta name="keywords" content="admin,dashboard" />
-        <meta name="author" content="Steelcoders" />
+        <meta name="author" content="
+        " />
         
         <!-- Styles -->
         <link type="text/css" rel="stylesheet" href="../assets/plugins/materialize/css/materialize.min.css"/>
@@ -40,13 +41,14 @@ else{
        <?php include('includes/sidebar.php');?>
 
             <main class="mn-inner">
-                <div class="middle-content">
+                <div class="">
                     <div class="row no-m-t no-m-b">
+                        <a href="manageemployee.php" target="blank">
                     <div class="col s12 m12 l4">
                         <div class="card stats-card">
                             <div class="card-content">
                             
-                                <span class="card-title">Total Regd Clients</span>
+                                <span class="card-title">Totle Regd Clients</span>
                                 <span class="stats-counter">
 <?php
 $sql = "SELECT id from tblclients";
@@ -58,32 +60,18 @@ $empcount=$query->rowCount();
 
                                     <span class="counter"><?php echo htmlentities($empcount);?></span></span>
                             </div>
-                            <div id="sparkline-bar"></div>
-                        </div>
-                    </div>
-                        <div class="col s12 m12 l4">
-                        <div class="card stats-card">
-                            <div class="card-content">
-                            
-                                <span class="card-title">Total Bookings </span>
-    <?php
-$sql = "SELECT id from tblbookings";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$dptcount=$query->rowCount();
-?>                            
-                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($dptcount);?></span></span>
+                           <div class="progress stats-card-progress">
+                                <div class="determinate" style="width: 70%"></div>
                             </div>
-                            <div id="sparkline-line"></div>
                         </div>
-                    </div>
+                    </div></a>
+                      <a href="manageeventtype.php" target="blank">
                     <div class="col s12 m12 l4">
                         <div class="card stats-card">
                             <div class="card-content">
-                                <span class="card-title">Listed Event Type</span>
+                                <span class="card-title">Listed Events</span>
                                     <?php
-$sql = "SELECT id from  tbleventype";
+$sql = "SELECT id from  tblbookings";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -96,15 +84,90 @@ $leavtypcount=$query->rowCount();
                                 <div class="determinate" style="width: 70%"></div>
                             </div>
                         </div>
-                    </div>
+                    </div></a>
+
+
+                    <a href="leaves.php" target="blank">
+                    <div class="col s12 m12 l4">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <span class="card-title">Total Bookings</span>
+                                    <?php
+$sql = "SELECT id from  tblbookings";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$totalleaves=$query->rowCount();
+?>   
+                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($totalleaves);?></span></span>
+                      
+                            </div>
+                            <div class="progress stats-card-progress">
+                                <div class="success" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div></a>
+
+     <a href="approvedbooking-history.php" target="blank">
+                    <div class="col s12 m12 l4">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <span class="card-title">Approved Bookings</span>
+                                    <?php
+$sql = "SELECT id from  tblbookings where Status=1";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$approvedleaves=$query->rowCount();
+?>   
+                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($approvedleaves);?></span></span>
+                      
+                            </div>
+                            <div class="progress stats-card-progress">
+                                <div class="success" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div></a>
+
+
+
+     <a href="pending-bookinghistory.php" target="blank">
+                    <div class="col s12 m12 l4">
+                        <div class="card stats-card">
+                            <div class="card-content">
+                                <span class="card-title">New Bookings</span>
+                                    <?php
+$sql = "SELECT id from  tblbookings where Status=0";
+$query = $dbh -> prepare($sql);
+$query->execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+$approvedleaves=$query->rowCount();
+?>   
+                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($approvedbookings);?></span></span>
+                      
+                            </div>
+                            <div class="progress stats-card-progress">
+                                <div class="success" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div></a>
+
+
+
+
+
+
+
+
+
                 </div>
                  
                     <div class="row no-m-t no-m-b">
-                        <div class="col s12 m12 l12">
+                        <div class="col s15 m12 l12">
                             <div class="card invoices-card">
                                 <div class="card-content">
                                  
-                                    <span class="card-title">Latest Booking Applications</span>
+                                    <span class="card-title">Latest Bookings</span>
                              <table id="example" class="display responsive-table ">
                                     <thead>
                                         <tr>
@@ -119,7 +182,7 @@ $leavtypcount=$query->rowCount();
                                     </thead>
                                  
                                     <tbody>
-<?php $sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblbookings.EventType,tblbookings.PostingDate,tblbookings.Status from tblbookings join tblclients on tblbookings.empid=tblclients.id order by lid desc limit 6";
+<?php $sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblbookings.Date, tblbookings.EventType,tblbookings.Status from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id order by lid desc limit 6";
 $query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -132,9 +195,9 @@ foreach($results as $result)
 
                                         <tr>
                                             <td> <b><?php echo htmlentities($cnt);?></b></td>
-                                              <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank"><?php echo htmlentities($result->FirstName." ".$result->LastName);?>(<?php echo htmlentities($result->EmpId);?>)</a></td>
+                                              <td><a href="editeclient.php?Client_ID=<?php echo htmlentities($result->id);?>" target="_blank"><?php echo htmlentities($result->FirstName." ".$result->LastName);?>(<?php echo htmlentities($result->EmpId);?>)</a></td>
                                             <td><?php echo htmlentities($result->EventType);?></td>
-                                            <td><?php echo htmlentities($result->PostingDate);?></td>
+                                            <td><?php echo htmlentities($result->Date);?></td>
                                                                        <td><?php $stats=$result->Status;
 if($stats==1){
                                              ?>
@@ -183,7 +246,7 @@ if($stats==1){
         <script src="../assets/plugins/curvedlines/curvedLines.js"></script>
         <script src="../assets/plugins/peity/jquery.peity.min.js"></script>
         <script src="../assets/js/alpha.min.js"></script>
-       
+        <script src="../assets/js/pages/dashboard.js"></script>
         
     </body>
 </html>

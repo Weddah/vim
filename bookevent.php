@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('includes/config.php');
-if(strlen($_SESSION['emplogin'])==0)
+if(strlen($_SESSION['clientlogin'])==0)
     {   
 header('location:index.php');
 }
@@ -21,7 +21,7 @@ $isread=0;
 if($Etime > $Stime){
                 $error=" Etime should be greater than Stime ";
            }
-$sql="INSERT INTO tblbookings(EventType,Venue,Stime,Etime,Date,Description,Status,IsRead,empid) VALUES(:eventtype,:venue,:est,:eet,:date,:description,:status,:isread,:empid)";
+$sql="INSERT INTO tblbookings(EventType,Venue,Stime,Etime,Date,Description,Status,IsRead,Client_ID) VALUES(:eventtype,:venue,:est,:eet,:date,:description,:status,:isread,:empid)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':eventtype',$eventtype,PDO::PARAM_STR);
 $query->bindParam(':date',$date,PDO::PARAM_STR);
@@ -31,7 +31,7 @@ $query->bindParam(':venue',$venue,PDO::PARAM_STR);
 $query->bindParam(':description',$description,PDO::PARAM_STR);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
-$query->bindParam(':empid',$empid,PDO::PARAM_STR);
+$query->bindParam(':Client_ID',$empid,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)
@@ -132,7 +132,7 @@ foreach($results as $result)
 
 <div class="input-field col m6 s12">
 <label for="fromdate">Event  Date</label>
-<input placeholder="" id="mask1" name="date" class="masked" type="text" data-inputmask="'alias': 'date'" required>
+<input placeholder="" id="mask1" name="date" class="masked" type="date" data-inputmask="'alias': 'date'" required>
 </div>
 <div class="input-field col m6 s12">
 <label for="start time"></label>

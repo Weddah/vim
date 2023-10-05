@@ -49,7 +49,7 @@
                             </a>
                         </section>
                         <div class="header-title col s3">      
-                            <span class="chapter-title">MBS| Client</span>
+                            <span class="chapter-title">VIM| Client</span>
                         </div>
                      
                 

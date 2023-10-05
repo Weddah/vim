@@ -20,7 +20,7 @@ $address=$_POST['address'];
 $city=$_POST['city']; 
 $country=$_POST['country']; 
 $mobileno=$_POST['mobileno']; 
-$sql="update tblemployees set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where id=:eid";
+$sql="update tblclients set FirstName=:fname,LastName=:lname,Gender=:gender,Dob=:dob,Department=:department,Address=:address,City=:city,Country=:country,Phonenumber=:mobileno where id=:eid";
 $query = $dbh->prepare($sql);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':lname',$lname,PDO::PARAM_STR);
@@ -105,7 +105,7 @@ $msg="Employee record updated Successfully";
                                                         <div class="row">
 <?php 
 $eid=intval($_GET['empid']);
-$sql = "SELECT * from  tblemployees where id=:eid";
+$sql = "SELECT * from  tblclients where id=:eid";
 $query = $dbh -> prepare($sql);
 $query -> bindParam(':eid',$eid, PDO::PARAM_STR);
 $query->execute();

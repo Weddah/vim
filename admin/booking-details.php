@@ -103,7 +103,7 @@ $msg="Booking Action Successfully";
                                     <tbody>
 <?php 
 $lid=intval($_GET['leaveid']);
-$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblclients.Gender,tblclients.Phonenumber,tblclients.EmailId,tblbookings.EventType,tblbookings.Venue,tblbookings.Stime,tblbookings.Etime,tblbookings.Date,tblbookings.Description,tblbookings.PostingDate,tblbookings.Status,tblbookings.AdminRemark,tblbookings.AdminRemarkDate from tblbookings join tblclients on tblbookings.empid=tblclients.id where tblbookings.id=:lid";
+$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblclients.Gender,tblclients.Phonenumber,tblclients.EmailId,tblbookings.EventType,tblbookings.Venue,tblbookings.Stime,tblbookings.Etime,tblbookings.Date,tblbookings.Description,tblbookings.Date,tblbookings.Status from tblbookings join tblclients on tblbookings.empid=tblclients.id where tblbookings.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
@@ -146,7 +146,7 @@ foreach($results as $result)
 											<td style="font-size:16px;"><b>Event Time :</b></td>
 											<td>From <?php echo htmlentities($result->Stime);?> to <?php echo htmlentities($result->Etime);?></td>
                                             <td style="font-size:16px;"><b>Booking Date</b></td>
-                                           <td><?php echo htmlentities($result->PostingDate);?></td>
+                                           <td><?php echo htmlentities($result->Date);?></td>
                                         </tr>
 
 <tr>
