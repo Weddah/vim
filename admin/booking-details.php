@@ -10,8 +10,8 @@ else{
 
 // code for update the read notification status
 $isread=1;
-$did=intval($_GET['leaveid']);  
-date_default_timezone_set('Asia/Kolkata');
+$did=intval($_GET['bookingid']);  
+date_default_timezone_set('Africa/Nairobi');
 $admremarkdate=date('Y-m-d G:i:s ', strtotime("now"));
 $sql="update tblbookings set IsRead=:isread where id=:did";
 $query = $dbh->prepare($sql);
@@ -22,10 +22,10 @@ $query->execute();
 // code for action taken on booking
 if(isset($_POST['update']))
 { 
-$did=intval($_GET['leaveid']);
+$did=intval($_GET['bookingid']);
 $description=$_POST['description'];
 $status=$_POST['status'];   
-date_default_timezone_set('Asia/Kolkata');
+date_default_timezone_set('Africa/Nairobi');
 $admremarkdate=date('Y-m-d G:i:s ', strtotime("now"));
 $sql="update tblbookings set AdminRemark=:description,Status=:status,AdminRemarkDate=:admremarkdate where id=:did";
 $query = $dbh->prepare($sql);
@@ -102,8 +102,8 @@ $msg="Booking Action Successfully";
                                  
                                     <tbody>
 <?php 
-$lid=intval($_GET['leaveid']);
-$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblclients.Gender,tblclients.Phonenumber,tblclients.EmailId,tblbookings.EventType,tblbookings.Venue,tblbookings.Stime,tblbookings.Etime,tblbookings.Date,tblbookings.Description,tblbookings.Date,tblbookings.Status from tblbookings join tblclients on tblbookings.empid=tblclients.id where tblbookings.id=:lid";
+$lid=intval($_GET['bookingid']);
+$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.Cl_Id,tblclients.id,tblclients.Gender,tblclients.Phonenumber,tblclients.EmailId,tblbookings.EventType,tblbookings.Venue,tblbookings.Stime,tblbookings.Etime,tblbookings.Date,tblbookings.Description,tblbookings.Date,tblbookings.Status from tblbookings join tblclients on tblbookings.Client_Id=tblclients.id where tblbookings.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
@@ -117,10 +117,10 @@ foreach($results as $result)
 
                                         <tr>
                                             <td style="font-size:16px;"> <b>Client Name :</b></td>
-                                              <td><a href="editemployee.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
+                                              <td><a href="editclient.php?Client_ID=<?php echo htmlentities($result->id);?>" target="_blank">
                                                 <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
                                               <td style="font-size:16px;"><b>Clnt Id :</b></td>
-                                              <td><?php echo htmlentities($result->EmpId);?></td>
+                                              <td><?php echo htmlentities($result->Cl_Id);?></td>
                                               <td style="font-size:16px;"><b>Gender :</b></td>
                                               <td><?php echo htmlentities($result->Gender);?></td>
                                           </tr>

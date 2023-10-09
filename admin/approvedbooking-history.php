@@ -84,7 +84,7 @@ else{
                                     <tbody>
 <?php 
 $status=1;
-$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblbookings.EventType,tblbookings.Date,tblbookings.Status from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id where tblbookings.Status=:status order by lid desc";
+$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.Cl_Id,tblclients.id,tblbookings.EventType,tblbookings.Date,tblbookings.Status from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id where tblbookings.Status=:status order by lid desc";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->execute();
@@ -115,7 +115,7 @@ if($stats==1){
                                              </td>
 
           <td>
-           <td><a href="Booking-details.php?leaveid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a><a href="invoice.php?leaveid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn green m-b-xs"  > Print Invoice</a></td>
+           <td><a href="Booking-details.php?bookingid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn blue m-b-xs"  > View Details</a><a href="invoice.php?bookingid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn green m-b-xs"  > Print Invoice</a></td>
                                     </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>

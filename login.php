@@ -24,7 +24,7 @@ if($status==0)
 $msg="Your account is Inactive. Please contact admin";
 } else{
 $_SESSION['clientlogin']=$_POST['username'];
-echo "<script type='text/javascript'> document.location = 'myprofile.php'; </script>";
+echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
 } }
 
 else{

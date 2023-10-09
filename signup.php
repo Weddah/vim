@@ -18,9 +18,9 @@ $gender=$_POST['gender'];
 $mobileno=$_POST['mobileno']; 
 $status=1;
 
-$sql="INSERT INTO tblclients(EmpId,FirstName,LastName,EmailId,Password,Phonenumber,Status,Gender) VALUES(:empid,:fname,:lname,:email,:password,:mobileno,:status,:gender)";
+$sql="INSERT INTO tblclients(EmpId,FirstName,LastName,EmailId,Password,Phonenumber,Status,Gender) VALUES(:clientid,:fname,:lname,:email,:password,:mobileno,:status,:gender)";
 $query = $dbh->prepare($sql);
-$query->bindParam(':empid',$empid,PDO::PARAM_STR);
+$query->bindParam(':clientid',$clientid,PDO::PARAM_STR);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':lname',$lname,PDO::PARAM_STR);
 $query->bindParam(':email',$email,PDO::PARAM_STR);

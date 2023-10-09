@@ -96,7 +96,7 @@ $msg="C record updated Successfully";
                                                     <div class="col m6">
                                                         <div class="row">
 <?php 
-$eid=$_SESSION['emplogin'];
+$eid=$_SESSION['clientlogin'];
 $sql = "SELECT * from  tblclients where EmailId=:eid";
 $query = $dbh -> prepare($sql);
 $query -> bindParam(':eid',$eid, PDO::PARAM_STR);
@@ -108,8 +108,8 @@ if($query->rowCount() > 0)
 foreach($results as $result)
 {               ?> 
  <div class="input-field col  s12">
-<label for="empcode">Client Code</label>
-<input  name="empcode" id="empcode" value="<?php echo htmlentities($result->EmpId);?>" type="text" autocomplete="off" readonly required>
+<label for="clcode">Client Code</label>
+<input  name="clcode" id="clcode" value="<?php echo htmlentities($result->Cl_Id);?>" type="text" autocomplete="off" readonly required>
 <span id="empid-availability" style="font-size:12px;"></span> 
 </div>
 
@@ -141,7 +141,8 @@ foreach($results as $result)
 <div class="col m6">
 <div class="row">
 <div class="input-field col m6 s12">
-<select  name="gender" autocomplete="off">
+<label for="gender">Gender</label>
+<select  name="gender" id="gender" autocomplete="off">
 <option value="<?php echo htmlentities($result->Gender);?>"><?php echo htmlentities($result->Gender);?></option>                                          
 <option value="Male">Male</option>
 <option value="Female">Female</option>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2023 at 03:25 PM
+-- Generation Time: Oct 09, 2023 at 03:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -77,7 +77,7 @@ INSERT INTO `tblbookings` (`id`, `EventType`, `Venue`, `Stime`, `Etime`, `Date`,
 
 CREATE TABLE `tblclients` (
   `id` int(27) NOT NULL,
-  `EmpId` int(11) NOT NULL,
+  `Cl_Id` int(11) NOT NULL,
   `FirstName` varchar(30) NOT NULL,
   `LastName` varchar(20) NOT NULL,
   `EmailId` varchar(30) NOT NULL,
@@ -91,13 +91,13 @@ CREATE TABLE `tblclients` (
 -- Dumping data for table `tblclients`
 --
 
-INSERT INTO `tblclients` (`id`, `EmpId`, `FirstName`, `LastName`, `EmailId`, `Password`, `Phonenumber`, `Status`, `Gender`) VALUES
+INSERT INTO `tblclients` (`id`, `Cl_Id`, `FirstName`, `LastName`, `EmailId`, `Password`, `Phonenumber`, `Status`, `Gender`) VALUES
 (1, 90, 'Ken', 'Muciri', 'ken@gmail.com', '1e9e9a787de1a1a5d4508bf9b1ed3175', 723456798, '1', 'Male'),
 (2, 101, 'Leila', 'Khalid', 'leila@gmail.com', '1f7ff802df649315948fcdf33e87a86a', 721908765, '1', 'Female'),
 (3, 45, 'Keith ', 'Seth', 'keith@gmail.com', '8c8b7878db796ff68adf8e578005486f', 754327689, '1', 'Male'),
-(4, 1975, 'Edward', 'Dume', 'kwdpoekwproek@jierj.com', '827ccb0eea8a706c4c34a16891f84e7b', 790444446, '1', 'Other'),
 (5, 80110, 'Edward', 'Dume', 'edu@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 790444446, '1', 'Male'),
-(6, 123, 'Edward', 'Dume', 'Emannuel.emurgat@icta.go.ke', '827ccb0eea8a706c4c34a16891f84e7b', 790444446, '1', 'Male');
+(6, 123, 'Edward', 'Dume', 'Emannuel.emurgat@icta.go.ke', '827ccb0eea8a706c4c34a16891f84e7b', 790444446, '1', 'Female'),
+(7, 4678, 'asdaf', 'sssf', 'WEQS@GMAIL.COM', '827ccb0eea8a706c4c34a16891f84e7b', 790444446, '1', 'Other');
 
 -- --------------------------------------------------------
 
@@ -166,7 +166,7 @@ ALTER TABLE `tblbookings`
 -- AUTO_INCREMENT for table `tblclients`
 --
 ALTER TABLE `tblclients`
-  MODIFY `id` int(27) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(27) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

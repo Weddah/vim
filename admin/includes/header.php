@@ -75,7 +75,7 @@ $unreadcount=$query->rowCount();?>
                                     <li class="notification-drop-title">Notifications</li>
 <?php 
 $isread=0;
-$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id where tblbookings.IsRead=:isread";
+$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.Cl_Id from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id where tblbookings.IsRead=:isread";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
 $query->execute();
@@ -90,7 +90,7 @@ foreach($results as $result)
                                         <a href="booking-details.php?leaveid=<?php echo htmlentities($result->lid);?>">
                                         <div class="notification">
                                             <div class="notification-icon circle cyan"><i class="material-icons">done</i></div>
-                                            <div class="notification-text"><p><b><?php echo htmlentities($result->FirstName." ".$result->LastName);?><br />(<?php echo htmlentities($result->EmpId);?>)</b> booked an event</p><span>at <?php echo htmlentities($result->PostingDate);?></b</span></div>
+                                            <div class="notification-text"><p><b><?php echo htmlentities($result->FirstName." ".$result->LastName);?><br />(<?php echo htmlentities($result->Cl_Id);?>)</b> booked an event</p><span>at <?php echo htmlentities($result->Date);?></b</span></div>
                                         </div>
                                         </a>
                                     </li>

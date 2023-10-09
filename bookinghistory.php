@@ -102,7 +102,6 @@ foreach($results as $result)
 											 <td><?php echo htmlentities($result->Etime);?></td>
 											  <td><?php echo htmlentities($result->Venue);?></td>
                                            <td><?php echo htmlentities($result->Description);?></td>
-                                            <td><?php echo htmlentities($result->PostingDate);?></td>
                                             <td><?php if($result->AdminRemark=="")
                                             {
 echo htmlentities('waiting for approval');

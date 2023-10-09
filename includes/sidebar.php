@@ -7,7 +7,7 @@
                         <div class="sidebar-profile-info">
                     <?php 
 $eid=$_SESSION['eid'];
-$sql = "SELECT FirstName,LastName,EmpId from  tblclients where id=:eid";
+$sql = "SELECT FirstName,LastName,Cl_Id from  tblclients where id=:eid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);
 $query->execute();
@@ -24,8 +24,8 @@ foreach($results as $result)
                     </div>
               
                 <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
-                  
-  <li class="no-padding"><a class="waves-effect waves-grey" href="myprofile.php">My Profiles</a></li>
+ <li class="no-padding"><a class="waves-effect waves-grey" href="dashboard.php">Dashboard</a></li>                     
+  <li class="no-padding"><a class="waves-effect waves-grey" href="myprofile.php">My Profile</a></li>
   <li class="no-padding"><a class="waves-effect waves-grey" href="clnt-changepassword.php">Change Password</a></li>
   <li class="no-padding"><a class="waves-effect waves-grey" href="eventtype.php">Events</a></li>
                     <li class="no-padding">
@@ -48,7 +48,7 @@ foreach($results as $result)
                    
                 </ul>
                 <div class="footer">
-                    <p class="copyright"><a href="http://phpgurukul.com/">VIM </a>©</p>
+                    <p class="copyright"><a href="http://Vim.com/">VIM </a>©</p>
                 
                 </div>
                 </div>

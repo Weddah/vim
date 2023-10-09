@@ -118,7 +118,7 @@ window.print();
                                     <tbody>
 <?php 
 $lid=intval($_GET['leaveid']);
-$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblclients.Gender,tblclients.Phonenumber,tblclients.EmailId,tblbookings.EventType,tblbookings.Venue,tblbookings.Stime,tblbookings.Etime,tblbookings.Date,tblbookings.Description,tblbookings.Date,tblbookings.Status,tblbookings.AdminRemark,tblbookings.AdminRemarkDate from tblbookings join tblclients on tblbookings.empid=tblclients.id where tblbookings.id=:lid";
+$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.Cl_Id,tblclients.id,tblclients.Gender,tblclients.Phonenumber,tblclients.EmailId,tblbookings.EventType,tblbookings.Venue,tblbookings.Stime,tblbookings.Etime,tblbookings.Description,tblbookings.Date,tblbookings.Status,tblbookings.AdminRemark,tblbookings.AdminRemarkDate from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id where tblbookings.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
@@ -132,10 +132,10 @@ foreach($results as $result)
 
                                         <tr>
                                             <td style="font-size:16px;"> <b>Client Name :</b></td>
-                                              <td><a href="editclient.php?empid=<?php echo htmlentities($result->id);?>" target="_blank">
+                                              <td><a href="editclient.php?Client_ID=<?php echo htmlentities($result->id);?>" target="_blank">
                                                 <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
-                                              <td style="font-size:16px;"><b>Clnt Id :</b></td>
-                                              <td><?php echo htmlentities($result->EmpId);?></td>
+                                              <td style="font-size:16px;"><b>Client Id :</b></td>
+                                              <td><?php echo htmlentities($result->Cl_Id);?></td>
                                               <td style="font-size:16px;"><b>Gender :</b></td>
                                               <td><?php echo htmlentities($result->Gender);?></td>
                                           </tr>

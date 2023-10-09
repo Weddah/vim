@@ -10,7 +10,7 @@ else{
 
 // code for update the read notification status
 $isread=1;
-$did=intval($_GET['leaveid']);  
+$did=intval($_GET['bookingid']);  
 date_default_timezone_set('Africa/Nairobi');
 $admremarkdate=date('Y-m-d G:i:s ', strtotime("now"));
 $sql="update tblbookings set IsRead=:isread where id=:did";
@@ -22,7 +22,7 @@ $query->execute();
 // code for action taken on bookings
 if(isset($_POST['update']))
 { 
-$did=intval($_GET['leaveid']);
+$did=intval($_GET['bookingid']);
 $description=$_POST['description'];
 $status=$_POST['status'];   
 date_default_timezone_set('Kenya/Nairobi');
@@ -113,8 +113,8 @@ window.print();
                                  
                                     <tbody>
 <?php 
-$lid=intval($_GET['leaveid']);
-$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblclients.Gender,tblclients.Phonenumber,tblclients.EmailId,tblbookings.EventType,tblbookings.Venue,tblbookings.Stime,tblbookings.Etime,tblbookings.Date,tblbookings.Description,tblbookings.Date,tblbookings.Status,tblbookings.AdminRemark,tblbookings.AdminRemarkDate from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id where tblbookings.id=:lid";
+$lid=intval($_GET['bookingid']);
+$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.Cl_Id,tblclients.id,tblclients.Gender,tblclients.Phonenumber,tblclients.EmailId,tblbookings.EventType,tblbookings.Venue,tblbookings.Stime,tblbookings.Etime,tblbookings.Date,tblbookings.Description,tblbookings.Date,tblbookings.Status,tblbookings.AdminRemark,tblbookings.AdminRemarkDate from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id where tblbookings.id=:lid";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':lid',$lid,PDO::PARAM_STR);
 $query->execute();
@@ -128,10 +128,10 @@ foreach($results as $result)
 
                                         <tr>
                                             <td style="font-size:16px;"> <b>Client Name :</b></td>
-                                              <td><a href="editemployee.php?Client_ID=<?php echo htmlentities($result->id);?>" target="_blank">
+                                              <td><a href="editeclient.php?Client_ID=<?php echo htmlentities($result->id);?>" target="_blank">
                                                 <?php echo htmlentities($result->FirstName." ".$result->LastName);?></a></td>
                                               <td style="font-size:16px;"><b>Client Id :</b></td>
-                                              <td><?php echo htmlentities($result->EmpId);?></td>
+                                              <td><?php echo htmlentities($result->Cl_Id);?></td>
                                               <td style="font-size:16px;"><b>Gender :</b></td>
                                               <td><?php echo htmlentities($result->Gender);?></td>
                                           </tr>

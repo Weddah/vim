@@ -92,7 +92,7 @@ else{
 <?php 
 $eid=$_SESSION['eid'];
 $status=1;
-$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.EmpId,tblclients.id,tblbookings.EventType,tblbookings.Date,tblbookings.Status,tblbookings.Client_ID from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id where tblbookings.Status=:status AND tblbookings.Client_ID=:eid order by lid desc";
+$sql = "SELECT tblbookings.id as lid,tblclients.FirstName,tblclients.LastName,tblclients.Cl_Id,tblclients.id,tblbookings.EventType,tblbookings.Date,tblbookings.Status,tblbookings.Client_ID from tblbookings join tblclients on tblbookings.Client_ID=tblclients.id where tblbookings.Status=:status AND tblbookings.Client_ID=:eid order by lid desc";
 $query = $dbh -> prepare($sql);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->bindParam(':eid',$eid,PDO::PARAM_STR);
@@ -107,7 +107,7 @@ foreach($results as $result)
 
                                         <tr>
                                             <td> <b><?php echo htmlentities($cnt);?></b></td>
-                                              <td><a href="editemployee.php?Client_ID=<?php echo htmlentities($result->id);?>" target="_blank"><?php echo htmlentities($result->FirstName." ".$result->LastName);?>(<?php echo htmlentities($result->EmpId);?>)</a></td>
+                                              <td><a href="editeclient.php?Client_ID=<?php echo htmlentities($result->id);?>" target="_blank"><?php echo htmlentities($result->FirstName." ".$result->LastName);?>(<?php echo htmlentities($result->EmpId);?>)</a></td>
                                             <td><?php echo htmlentities($result->EventType);?></td>
                                             <td><?php echo htmlentities($result->Date);?></td>
                                                                        <td><?php $stats=$result->Status;

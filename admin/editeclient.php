@@ -43,7 +43,7 @@ $msg="Employee record updated Successfully";
     <head>
         
         <!-- Title -->
-        <title>Admin | Update Employee</title>
+        <title>Admin | Update Client</title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <meta charset="UTF-8">
@@ -104,7 +104,7 @@ $msg="Employee record updated Successfully";
                                                     <div class="col m6">
                                                         <div class="row">
 <?php 
-$eid=intval($_GET['empid']);
+$eid=intval($_GET['Client_Id']);
 $sql = "SELECT * from  tblclients where id=:eid";
 $query = $dbh -> prepare($sql);
 $query -> bindParam(':eid',$eid, PDO::PARAM_STR);
@@ -162,24 +162,7 @@ foreach($results as $result)
 <input id="birthdate" name="dob"  class="datepicker" value="<?php echo htmlentities($result->Dob);?>" >
 </div>
 
-                                                    
-
-<div class="input-field col m6 s12">
-<select  name="department" autocomplete="off">
-<option value="<?php echo htmlentities($result->Department);?>"><?php echo htmlentities($result->Department);?></option>
-<?php $sql = "SELECT DepartmentName from tbldepartments";
-$query = $dbh -> prepare($sql);
-$query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $resultt)
-{   ?>                                            
-<option value="<?php echo htmlentities($resultt->DepartmentName);?>"><?php echo htmlentities($resultt->DepartmentName);?></option>
-<?php }} ?>
-</select>
-</div>
+                                                                                            
 
 <div class="input-field col m6 s12">
 <label for="address">Address</label>

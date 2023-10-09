@@ -9,7 +9,7 @@ header('location:index.php');
 else{
 if(isset($_POST['book']))
 {
-$empid=$_SESSION['eid'];
+$Client_IDid=$_SESSION['eid'];
  $eventtype=$_POST['eventtype'];
 $date=$_POST['date'];  
 $est=$_POST['est'];
@@ -21,7 +21,7 @@ $isread=0;
 if($Etime > $Stime){
                 $error=" Etime should be greater than Stime ";
            }
-$sql="INSERT INTO tblbookings(EventType,Venue,Stime,Etime,Date,Description,Status,IsRead,Client_ID) VALUES(:eventtype,:venue,:est,:eet,:date,:description,:status,:isread,:empid)";
+$sql="INSERT INTO tblbookings(EventType,Venue,Stime,Etime,Date,Description,Status,IsRead,Client_ID) VALUES(:eventtype,:venue,:est,:eet,:date,:description,:status,:isread,:Client_ID)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':eventtype',$eventtype,PDO::PARAM_STR);
 $query->bindParam(':date',$date,PDO::PARAM_STR);
@@ -31,7 +31,7 @@ $query->bindParam(':venue',$venue,PDO::PARAM_STR);
 $query->bindParam(':description',$description,PDO::PARAM_STR);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->bindParam(':isread',$isread,PDO::PARAM_STR);
-$query->bindParam(':Client_ID',$empid,PDO::PARAM_STR);
+$query->bindParam(':Client_ID',$Client_ID,PDO::PARAM_STR);
 $query->execute();
 $lastInsertId = $dbh->lastInsertId();
 if($lastInsertId)

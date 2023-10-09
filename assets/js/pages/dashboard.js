@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     
-    setTimeout(function(){ Materialize.toast('Welcome to Online Model Booking System', 4000) }, 2000);
+    setTimeout(function(){ Materialize.toast('Welcome to Online Influencer Booking System', 4000) }, 2000);
     
     
     
