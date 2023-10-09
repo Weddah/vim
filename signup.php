@@ -9,7 +9,7 @@ include('includes/config.php');
 //else{
 if(isset($_POST['add']))
 {
-$empid=$_POST['empcode'];
+$clientid=$_POST['empcode'];
 $fname=$_POST['firstName'];
 $lname=$_POST['lastName'];   
 $email=$_POST['email']; 
@@ -18,7 +18,7 @@ $gender=$_POST['gender'];
 $mobileno=$_POST['mobileno']; 
 $status=1;
 
-$sql="INSERT INTO tblclients(EmpId,FirstName,LastName,EmailId,Password,Phonenumber,Status,Gender) VALUES(:clientid,:fname,:lname,:email,:password,:mobileno,:status,:gender)";
+$sql="INSERT INTO tblclients(Cl_Id,FirstName,LastName,EmailId,Password,Phonenumber,Status,Gender) VALUES(:clientid,:fname,:lname,:email,:password,:mobileno,:status,:gender)";
 $query = $dbh->prepare($sql);
 $query->bindParam(':clientid',$clientid,PDO::PARAM_STR);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
@@ -186,7 +186,7 @@ $error="Something went wrong. Please try again";
  </div>
 <div class="input-field col s12">
 <button type="submit" name="add" onclick="return valid();" id="add" class="waves-effect waves-light btn indigo m-b-xs">ADD</button>
-<p>Alredy have an account? <a href="index.php">Sign In</a>.</p>
+<p>Alredy have an account? <a href="login.php">Sign In</a>.</p>
 </div>
 	
    
