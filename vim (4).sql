@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2023 at 03:50 PM
+-- Generation Time: Oct 10, 2023 at 06:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -67,7 +67,8 @@ CREATE TABLE `tblbookings` (
 --
 
 INSERT INTO `tblbookings` (`id`, `EventType`, `Venue`, `Stime`, `Etime`, `Date`, `AdminRemark`, `AdminRemarkDate`, `Description`, `Status`, `IsRead`, `Client_ID`) VALUES
-(1, 'Cinematography', 'tyyyj', '00:00:02', '00:00:09', '2023-09-24', 'Granted', '2023-10-04', 'rrrre', '1', '1', 6);
+(1, 'Cinematography', 'tyyyj', '00:00:02', '00:00:09', '2023-09-24', 'Granted', '2023-10-04', 'rrrre', '1', '1', 6),
+(2, 'Social Media Campaign', 'iyhui', '00:00:02', '00:00:03', '2023-10-12', '', NULL, 'vhjvjh', '0', '0', 8);
 
 -- --------------------------------------------------------
 
@@ -97,7 +98,8 @@ INSERT INTO `tblclients` (`id`, `Cl_Id`, `FirstName`, `LastName`, `EmailId`, `Pa
 (3, 45, 'Keith ', 'Seth', 'keith@gmail.com', '8c8b7878db796ff68adf8e578005486f', 754327689, '1', 'Male'),
 (5, 80110, 'Edward', 'Dume', 'edu@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 790444446, '1', 'Male'),
 (6, 123, 'Edward', 'Dume', 'Emannuel.emurgat@icta.go.ke', '827ccb0eea8a706c4c34a16891f84e7b', 790444446, '1', 'Female'),
-(7, 4678, 'asdaf', 'sssf', 'WEQS@GMAIL.COM', '827ccb0eea8a706c4c34a16891f84e7b', 790444446, '1', 'Other');
+(7, 4678, 'asdaf', 'sssf', 'WEQS@GMAIL.COM', '827ccb0eea8a706c4c34a16891f84e7b', 790444446, '1', 'Other'),
+(8, 23333, 'Emanuel', '32245', 'imannuel.emurgat@icta.go.ke', '827ccb0eea8a706c4c34a16891f84e7b', 701006454, '1', 'Other');
 
 -- --------------------------------------------------------
 
@@ -106,23 +108,18 @@ INSERT INTO `tblclients` (`id`, `Cl_Id`, `FirstName`, `LastName`, `EmailId`, `Pa
 --
 
 CREATE TABLE `tbleventype` (
-  `EventType` varchar(100) NOT NULL,
-  `Description` varchar(100) NOT NULL,
-  `Sprice` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `id` int(27) NOT NULL,
+  `EventType` varchar(60) NOT NULL,
+  `Description` varchar(200) NOT NULL,
+  `Sprice` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbleventype`
 --
 
-INSERT INTO `tbleventype` (`EventType`, `Description`, `Sprice`) VALUES
-('Live Media Coverage', '1 Hour Session', 35650),
-('Cinematography', 'Motion-Picture Photography', 45900),
-('Podcast', 'A feature on a podcast', 24500),
-('Photography', 'Product/Photoshoot', 35540),
-('Blog', 'A blog feature', 67890),
-('Social Media Campaign', '3 Weekly posts, a Reel, Short and Tiktok Video', 98500),
-('Vlog', 'A vlog feature', 78450);
+INSERT INTO `tbleventype` (`id`, `EventType`, `Description`, `Sprice`) VALUES
+(3, 'Facebook Reels', 'live', 20000);
 
 --
 -- Indexes for dumped tables
@@ -147,6 +144,12 @@ ALTER TABLE `tblclients`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbleventype`
+--
+ALTER TABLE `tbleventype`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -160,13 +163,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `tblbookings`
 --
 ALTER TABLE `tblbookings`
-  MODIFY `id` int(27) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(27) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tblclients`
 --
 ALTER TABLE `tblclients`
-  MODIFY `id` int(27) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(27) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `tbleventype`
+--
+ALTER TABLE `tbleventype`
+  MODIFY `id` int(27) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

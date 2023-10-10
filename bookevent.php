@@ -9,7 +9,7 @@ header('location:index.php');
 else{
 if(isset($_POST['book']))
 {
-$Client_IDid=$_SESSION['eid'];
+$Client_ID=$_SESSION['eid'];
  $eventtype=$_POST['eventtype'];
 $date=$_POST['date'];  
 $est=$_POST['est'];
