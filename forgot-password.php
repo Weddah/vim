@@ -136,7 +136,7 @@ $msg="Your Password succesfully changed";
                 
                 </ul>
           <div class="footer">
-                    <p class="copyright"><a href="http://phpgurukul.com/">ELMS </a>©</p>
+                    <p class="copyright"><a href="#">vim </a>©</p>
                 
                 </div>
                 </div>
@@ -173,7 +173,7 @@ $msg="Your Password succesfully changed";
 {
 $Client_ID=$_POST['Client_ID'];
 $email=$_POST['emailid'];
-$sql ="SELECT id FROM tblclients WHERE EmailId=:email and EmpId=:Client_ID";
+$sql ="SELECT id FROM tblclients WHERE EmailId=:email and Cl_Id=:Client_ID";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':email', $email, PDO::PARAM_STR);
 $query-> bindParam(':Client_ID', $Client_ID, PDO::PARAM_STR);

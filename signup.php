@@ -186,7 +186,7 @@ $error="Something went wrong. Please try again";
  </div>
 <div class="input-field col s12">
 <button type="submit" name="add" onclick="return valid();" id="add" class="waves-effect waves-light btn indigo m-b-xs">ADD</button>
-<p>Alredy have an account? <a href="login.php">Sign In</a>.</p>
+<p>Alredy have an account? <a href="index.php">Sign In</a>.</p>
 </div>
 	
    

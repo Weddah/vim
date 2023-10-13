@@ -176,6 +176,10 @@ else{
                                                 
                                                   <p>Don't have an account? <a href="signup.php">Sign up now</a>.</p>
                                                </div>
+                                               <div class="col s12 right-align m-t-sm">
+                                                
+                                                <p>Have an account? <a href="forgot-password.php">Fogort Password</a>.</p>
+                                             </div>
                                            </form>
                                       </div>
                                   </div>
