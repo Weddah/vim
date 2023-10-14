@@ -118,13 +118,14 @@ if($stats==1){
                                                 <span style="color: red">Not Approved</span>
                                                  <?php } if($stats==0)  { ?>
  <span style="color: blue">waiting for approval</span>
- <?php } ?>
+ <?php } ?> 
 
 
                                              </td>
 
           <td>
            <td><a href="invoice.php?leaveid=<?php echo htmlentities($result->lid);?>" class="waves-effect waves-light btn green m-b-xs"  > Print Invoice</a></td>
+           <td><a href="mpesa-payment/" class="waves-effect waves-light btn green m-b-xs"  > Pay</a></td>
                                     </tr>
                                          <?php $cnt++;} }?>
                                     </tbody>

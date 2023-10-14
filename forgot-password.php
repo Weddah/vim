@@ -187,7 +187,7 @@ foreach ($results as $result) {
     ?>
 
  <div class="row">
-          <span class="card-title" style="font-size:20px;">change your password </span>                                     
+                                     
     <form class="col s12" name="udatepwd" method="post">
   <div class="input-field col s12">
  <input id="password" type="password" name="newpassword" class="validate" autocomplete="off" required>

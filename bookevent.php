@@ -50,7 +50,7 @@ $error="Something went wrong. Please try again";
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <!-- Title -->
         <title>Client | Book an Event</title>
         
@@ -85,7 +85,11 @@ $error="Something went wrong. Please try again";
 }
         </style>
  
-
+ <script type="text/javascript">
+    $(function() {
+        $( "#mask1" ).datepicker({  minDate: new Date() });
+    });
+</script>
 
     </head>
     <body>
@@ -132,7 +136,7 @@ foreach($results as $result)
 
 <div class="input-field col m6 s12">
 <label for="fromdate">Event  Date</label>
-<input placeholder="" id="mask1" name="date" class="masked" type="date" data-inputmask="'alias': 'date'" required>
+<input placeholder="" id="mask1" name="date" class="masked" type="date" data-inputmask="'alias': 'date'"   required>
 </div>
 <div class="input-field col m6 s12">
 <label for="start time"></label>
@@ -231,7 +235,7 @@ foreach($results as $result)
         <script src="assets/js/alpha.min.js"></script>
         <script src="assets/js/pages/form_elements.js"></script>
           <script src="assets/js/pages/form-input-mask.js"></script>
-                <script src="assets/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+             <script src="assets/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
     </body>
 </html>
 <?php } ?> 

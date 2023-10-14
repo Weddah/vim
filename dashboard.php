@@ -80,7 +80,7 @@ $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 $approvedbookings=$query->rowCount();
 ?>   
-                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($approvedbookings);?></span></span>
+                                <span class="stats-counter"><span class="counter"><?php echo htmlentities($approvedbooking);?></span></span>
                       
                             </div>
                             <div class="progress stats-card-progress">
