@@ -34,7 +34,7 @@ foreach($results as $result)
                             <ul>
                                 <li><a href="bookevent.php">Book an Event</a></li>
                                 <li><a href="bookinghistory.php">Booking History</a></li>
-								 <li><a href="approvedbooking-history.php">Print Invoice</a></li>
+								 <li><a href="approvedbooking-history.php">Approved Bookings</a></li>
                             </ul>
                         </div>
                     </li>
