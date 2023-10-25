@@ -1,4 +1,4 @@
-  <!-- ======= Header Section ======= -->
+<!-- ======= Header Section ======= -->
 <?php include_once 'includes/head.php'; ?>
 <!-- ======= Top Bar Section ======= -->
 <?php include_once 'includes/top_bar.php'; ?>
@@ -179,5 +179,3 @@
 
 <!-- ======= Footer Section ======= -->
 <?php include_once 'includes/footer.php'; ?>
-
-  
