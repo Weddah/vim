@@ -1,4 +1,4 @@
- <!-- ======= Header ======= 
+<!-- ======= Header ======= 
  
   <header id="header">
     <div class="container">
@@ -18,11 +18,9 @@
             <li class=""><a href="index.php">Home</a></li>
             <li><a href="index.php#about">About Us</a></li>
             <li><a href="index.php#services">Services</a></li>
-			<li><a href="gallery.html">Influencers</a></li>
-            <li><a href="login.php">Log In</a></li>
-            <li><a href="signup.php">Register</a></li>
+	    <li><a href="gallery.html">Influencers</a></li>
             <li><a href="index.php#contact">Contact Us</a></li>
-			 <li><a href="#">FAQs</a></li>
+            <li><a href="login.php">Log In</a></li>
           
         </ul>
       </nav><!-- .nav-menu -->
